@@ -4,6 +4,11 @@ import SearchField from './components/SearchField';
 import GuessTheTopic from './components/GuessTheTopic';
 import GuessFlag from './components/GuessFlag'
 
+import github from "./img/github.svg"; 
+import fb from "./img/fb.png"; 
+import insta from "./img/insta.png"; 
+import twitter from "./img/twitter.png"; 
+
 import './App.css';
 
 class App extends Component {
@@ -120,7 +125,22 @@ class App extends Component {
         }
         
         
-      <footer></footer>  
+      <footer>
+        <div className={'flex justify-center items-end mt4'}>
+          <div className={'ph2'}>
+              <a href="https://www.github.com/andragh83/" target="_blank" rel="noopener noreferrer"><img height="30px" src={github} alt="github" style={{margin: "10px auto"}}/></a>
+          </div>
+          <div className={'ph2'}>
+              <a href="https://www.facebook.com/andraghstudio/" target="_blank" rel="noopener noreferrer"><img height="30px" src={fb} alt="facebook" style={{margin: "10px auto"}}/></a>
+          </div>
+          <div className={'ph2'}>
+              <a href="https://twitter.com/andraghitulescu" target="_blank" rel="noopener noreferrer"><img height="30px" src={twitter} alt="facebook" style={{margin: "10px auto"}}/></a>
+          </div>
+          <div className={'ph2'}>
+              <a href="https://www.instagram.com/andraghstudio/" target="_blank" rel="noopener noreferrer"><img height="30px" src={insta} alt="instagram" style={{margin: "10px auto"}}/></a>
+          </div>
+          </div>
+      </footer>  
       </div>
     );
   }
