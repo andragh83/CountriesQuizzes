@@ -137,7 +137,7 @@ class App extends Component {
               <a href="https://twitter.com/andraghitulescu" target="_blank" rel="noopener noreferrer"><img height="30px" src={twitter} alt="facebook" style={{margin: "10px auto"}}/></a>
           </div>
           <div className={'ph2'}>
-              <a href="https://www.instagram.com/andraghstudio/" target="_blank" rel="noopener noreferrer"><img height="30px" src={insta} alt="instagram" style={{margin: "10px auto"}}/></a>
+              <a href="https://www.instagram.com/andragh83/" target="_blank" rel="noopener noreferrer"><img height="30px" src={insta} alt="instagram" style={{margin: "10px auto"}}/></a>
           </div>
           </div>
       </footer>  
