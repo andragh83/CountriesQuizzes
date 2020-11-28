@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/CountriesGuessingGame/static/css/main.7db0768f.chunk.css",
-    "main.js": "/CountriesGuessingGame/static/js/main.16a5593c.chunk.js",
-    "main.js.map": "/CountriesGuessingGame/static/js/main.16a5593c.chunk.js.map",
+    "main.js": "/CountriesGuessingGame/static/js/main.57cb8dbf.chunk.js",
+    "main.js.map": "/CountriesGuessingGame/static/js/main.57cb8dbf.chunk.js.map",
     "runtime-main.js": "/CountriesGuessingGame/static/js/runtime-main.1e420cf5.js",
     "runtime-main.js.map": "/CountriesGuessingGame/static/js/runtime-main.1e420cf5.js.map",
     "static/css/2.31461e4f.chunk.css": "/CountriesGuessingGame/static/css/2.31461e4f.chunk.css",
@@ -24,6 +24,6 @@
     "static/css/2.31461e4f.chunk.css",
     "static/js/2.72e72ed1.chunk.js",
     "static/css/main.7db0768f.chunk.css",
-    "static/js/main.16a5593c.chunk.js"
+    "static/js/main.57cb8dbf.chunk.js"
   ]
 }
