@@ -89,11 +89,12 @@ class GuessTheTopic extends Component {
                 {
                     play? 
                     <div>
-                        <div className={'flex justify-center'}>
+                        <div className={'flex justify-center flex-column'}>
                             <h2><span style={{textTransform: 'capitalize'}}>{topic}</span> of <span style={{borderBottom: '3px solid black'}}>{randomElement.name}</span>?</h2>
                         </div>
                         <input 
-                            className={"ba tc br3 pa3 w-25"}
+                            className={"ba tc br3 pa3"}
+                            style={{width: '300px'}}
                             type="text" 
                             placeholder="Write your answer here" 
                             onChange = {this.onGuessEntered}
@@ -101,10 +102,11 @@ class GuessTheTopic extends Component {
                             value = {guess}
                             />
                         <button 
-                            className={'ba tc br3 pa3 navy bg-light-green'}
+                            className={'ba tc br3 pa3 navy bg-light-green self-center'}
                             style={{
                                 borderStyle: 'none', 
-                                marginLeft: '1em'
+                                marginLeft: '1em',
+                                width: '50px'
                                 }}
                             onClick = {() => this.handleOkButton()}
                             >
@@ -112,10 +114,13 @@ class GuessTheTopic extends Component {
                         </button>
                         
                         <button 
-                            className={'ba tc br3 pa3 white bg-navy'}
+                            className={'ba tc br3 pa3 white bg-navy self-center'}
                             style={{
                                 borderStyle: 'none', 
-                                marginLeft: '1em'
+                                marginLeft: '1em',
+                                marginRight: '1em',
+                                marginTop: '1em',
+                                width: '250px'
                                 }}
                             onClick = {() => this.newCountry(countries)}
                             >
@@ -125,14 +130,18 @@ class GuessTheTopic extends Component {
                         {
                             guessEntered?
                                 (guess.toLowerCase()===randomElement[topic].toLowerCase()?
-                                    <div style={{color: 'green', fontSize: '2em', paddingTop: '0.8em'}}>
+                                    <div 
+                                        className={'flex justify-center flex-column'}
+                                        style={{color: 'green', fontSize: '2em', paddingTop: '0.8em'}}>
                                         BRAVO! That's right! 
                                         <button 
-                                            className={'ba tc br3 pa3 white bg-dark-green'}
+                                            className={'ba tc br3 pa3 white bg-dark-green self-center'}
                                             style={{
                                                 borderStyle: 'none', 
                                                 marginLeft: '1em',
-                            
+                                                marginRight: '1em',
+                                                marginTop: '0.5em',
+                                                width: '250px'
                                                 }}
                                             onClick = {() => this.newCountry(countries)}
                                             >
@@ -140,16 +149,14 @@ class GuessTheTopic extends Component {
                                         </button>   
                                     </div>
                                     :
-                                    <div>
-                                        <p style={{color: 'red', fontSize: '2em', margin: '1em'}}>
-                                            Wrong! 
-                                        </p> 
-                                        
+                                    <div className={'flex justify-center flex-column'}> 
+                                            <h2 className={'red'}>Wrong!</h2>
                                         <button 
-                                            className={'ba tc br3 pa3 white bg-navy'}
+                                            className={'ba tc br3 pa3 white bg-light-red self-center'}
                                             style={{
                                                 borderStyle: 'none', 
-                                                marginLeft: '1em'
+                                                marginLeft: '1em',
+                                                width: '250px'
                                                 }}
                                             onClick = {this.wrongGuess}
                                         >

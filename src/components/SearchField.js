@@ -5,7 +5,8 @@ const SearchField = ({ onValueEntered, value }) => {
         <div className={"tc pa3"}>
 
             <input 
-                className={"ba tc br3 pa3 w-25"}
+                className={"ba tc br3 pa3"}
+                style={{width: '300px'}}
                 type="text" 
                 placeholder="Enter a country name to see info" 
                 onChange = {onValueEntered}

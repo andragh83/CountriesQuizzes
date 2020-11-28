@@ -114,10 +114,11 @@ class GuessTheTopic extends Component {
                         </div>
                         <div className={'pa3'}>
                             <button 
-                                className={'ba tc pa3 mid-gray'}
+                                className={'ba tc pa3 ph3 mid-gray'}
                                 style={{
                                     marginLeft: '0.5em',
                                     marginRight: '0.5em',
+                                    marginBottom: '0.3em',
                                     backgroundImage: `url(${flagsDisplay[0].flag})`,
                                     backgroundSize: 'cover', 
                                     backgroundPosition: 'center',
@@ -131,10 +132,11 @@ class GuessTheTopic extends Component {
                             Flag
                             </button>
                             <button 
-                                className={'ba tc pa3 mid-gray'}
+                                className={'ba tc pa3 ph3 mid-gray'}
                                 style={{
                                     marginLeft: '0.5em',
                                     marginRight: '0.5em',
+                                    marginBottom: '0.3em',
                                     backgroundImage: `url(${flagsDisplay[1].flag})`,
                                     backgroundSize: 'cover', 
                                     backgroundPosition: 'center',
@@ -148,10 +150,11 @@ class GuessTheTopic extends Component {
                             Flag
                             </button>
                             <button 
-                                className={'ba tc pa3 mid-gray'}
+                                className={'ba tc pa3 ph3 mid-gray'}
                                 style={{
                                     marginLeft: '0.5em',
                                     marginRight: '0.5em',
+                                    marginBottom: '0.3em',
                                     backgroundImage: `url(${flagsDisplay[2].flag})`,
                                     backgroundSize: 'cover', 
                                     backgroundPosition: 'center',
@@ -168,13 +171,18 @@ class GuessTheTopic extends Component {
                         {
                             guess ?
                                 (guess.flag===randomElement.flag ?
-                                    <div style={{color: 'green', fontSize: '2.5em', paddingTop: '0.3em', paddingBottom: '0.3em', fontWeight: 'Bold'}}>
-                                        BRAVO! That's right! 
+                                    <div 
+                                        className={'flex justify-center flex-column'}
+                                        style={{color: 'green', fontSize: '2.5em', paddingTop: '0.3em', paddingBottom: '0.3em', fontWeight: 'Bold'}}>
+                                        BRAVO! That's right!
                                         <button 
-                                                className={'ba tc br3 pa3 white bg-navy'}
+                                                className={'ba tc br3 pv3 ph3 white bg-navy self-center'}
                                                 style={{
                                                     borderStyle: 'none', 
-                                                    marginLeft: '1em'
+                                                    marginLeft: '0.5em',
+                                                    marginRight: '0.5em',
+                                                    marginTop: '0.3em',
+                                                    width: '250px'
                                                     }}
                                                     onClick = {() => {
                                                         this.playAgain(countries); 
@@ -186,13 +194,19 @@ class GuessTheTopic extends Component {
                                             </button>
                                     </div>
                                     :
-                                    <div style={{color: 'red', fontSize: '1.5em', paddingTop: '0.3em', paddingBottom: '0.3em'}}>
-                                            Wrong! That's the flag of <span style={{borderBottom: '2px solid red', fontWeight: 'Bold'}}>{guess.name}</span>!
+                                    <div 
+                                        className={'flex justify-center flex-column'}
+                                        style={{color: 'red', fontSize: '1.5em', paddingTop: '0.3em', paddingBottom: '0.3em'}}
+                                        >
+                                            Wrong! That's the flag of <span style={{fontWeight: 'Bold'}}>{guess.name}!</span>
                                             <button 
-                                                className={'ba tc br3 pa3 white bg-navy'}
+                                                className={'ba tc br3 pa3 white bg-navy self-center'}
                                                 style={{
                                                     borderStyle: 'none', 
-                                                    marginLeft: '1em'
+                                                    marginLeft: '1em',
+                                                    marginRight: '1em',
+                                                    marginTop: '0.3em',
+                                                    width: '250px'
                                                     }}
                                                 onClick = {this.wrongAnswer}
                                             >

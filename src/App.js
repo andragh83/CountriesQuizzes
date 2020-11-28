@@ -120,7 +120,7 @@ class App extends Component {
         }
         
         
-        
+      <footer></footer>  
       </div>
     );
   }

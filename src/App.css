@@ -1,5 +1,21 @@
 h1 {
   color: rgb(0, 94, 102);
   font-family: 'Bungee Shade', cursive;
-  font-size: 4em !important;
+  font-size: 2em !important;
+}
+
+@media screen and (min-width: 30em) {
+  h1 {
+    font-size: 4em !important;
+  }
+}
+
+footer {
+  height: 100px;
+}
+
+@media screen and (min-width: 30em) {
+  footer {
+    height: 0px !important;
+  }
 }
