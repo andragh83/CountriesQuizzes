@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/CountriesGuessingGame/static/css/main.7ecc6ccd.chunk.css",
-    "main.js": "/CountriesGuessingGame/static/js/main.119e314d.chunk.js",
-    "main.js.map": "/CountriesGuessingGame/static/js/main.119e314d.chunk.js.map",
+    "main.css": "/CountriesGuessingGame/static/css/main.7db0768f.chunk.css",
+    "main.js": "/CountriesGuessingGame/static/js/main.16a5593c.chunk.js",
+    "main.js.map": "/CountriesGuessingGame/static/js/main.16a5593c.chunk.js.map",
     "runtime-main.js": "/CountriesGuessingGame/static/js/runtime-main.1e420cf5.js",
     "runtime-main.js.map": "/CountriesGuessingGame/static/js/runtime-main.1e420cf5.js.map",
     "static/css/2.31461e4f.chunk.css": "/CountriesGuessingGame/static/css/2.31461e4f.chunk.css",
@@ -12,14 +12,18 @@
     "static/js/3.f77e8932.chunk.js.map": "/CountriesGuessingGame/static/js/3.f77e8932.chunk.js.map",
     "index.html": "/CountriesGuessingGame/index.html",
     "static/css/2.31461e4f.chunk.css.map": "/CountriesGuessingGame/static/css/2.31461e4f.chunk.css.map",
-    "static/css/main.7ecc6ccd.chunk.css.map": "/CountriesGuessingGame/static/css/main.7ecc6ccd.chunk.css.map",
-    "static/js/2.72e72ed1.chunk.js.LICENSE.txt": "/CountriesGuessingGame/static/js/2.72e72ed1.chunk.js.LICENSE.txt"
+    "static/css/main.7db0768f.chunk.css.map": "/CountriesGuessingGame/static/css/main.7db0768f.chunk.css.map",
+    "static/js/2.72e72ed1.chunk.js.LICENSE.txt": "/CountriesGuessingGame/static/js/2.72e72ed1.chunk.js.LICENSE.txt",
+    "static/media/fb.d1e12fbb.png": "/CountriesGuessingGame/static/media/fb.d1e12fbb.png",
+    "static/media/github.d1bb13ce.svg": "/CountriesGuessingGame/static/media/github.d1bb13ce.svg",
+    "static/media/insta.9094474d.png": "/CountriesGuessingGame/static/media/insta.9094474d.png",
+    "static/media/twitter.a429d008.png": "/CountriesGuessingGame/static/media/twitter.a429d008.png"
   },
   "entrypoints": [
     "static/js/runtime-main.1e420cf5.js",
     "static/css/2.31461e4f.chunk.css",
     "static/js/2.72e72ed1.chunk.js",
-    "static/css/main.7ecc6ccd.chunk.css",
-    "static/js/main.119e314d.chunk.js"
+    "static/css/main.7db0768f.chunk.css",
+    "static/js/main.16a5593c.chunk.js"
   ]
 }
