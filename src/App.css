@@ -1,7 +1,7 @@
 h1 {
   color: rgb(0, 94, 102);
   font-family: 'Bungee Shade', cursive;
-  font-size: 2em !important;
+  font-size: 3em !important;
 }
 
 @media screen and (min-width: 30em) {
