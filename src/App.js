@@ -21,7 +21,7 @@ class App extends Component {
         playButton: 'PLAY',
         selectedTopic: false,
         showCards: false,
-        showCardsButton: 'See all countries'
+        showCardsButton: 'SHOW COUNTRIES'
     };
   }
 
@@ -52,9 +52,9 @@ class App extends Component {
   
   handleShowCards = () => {
     if (!this.state.showCards) {
-      this.setState({showCards: true, showCardsButton: 'Hide countries'})
+      this.setState({showCards: true, showCardsButton: 'HIDE COUNTRIES'})
     } else {
-      this.setState({showCards: false, showCardsButton: 'See all countries'})
+      this.setState({showCards: false, showCardsButton: 'SHOW COUNTRIES'})
     }
     
   }
@@ -71,10 +71,9 @@ class App extends Component {
       <div className={"tc"}>
         <h1 className={"tc"}>Know your Countries</h1>
         <button 
-            className={'pa3 ph4 mb3 br3 navy bg-light-green'}
-            style={{fontSize: '3em', borderStyle: 'none'}} 
+            className={'f1 b br3 ph4 pv3 mb2 dib shadow-3 bg-light-green grow'}            
             onClick = {this.handlePlayButton}>
-            {playButton}
+           {playButton}
         </button>
         {
           play?
@@ -98,8 +97,7 @@ class App extends Component {
               
                 <div>
                     <button
-                    className={'tc f6 link dim br3 ph4 pv3 mb2 dib white bg-light-red'}
-                    style={{fontSize: '2em', borderStyle: 'none'}}
+                    className={'f2 b link grow br3 ph4 pv3 mb2 dib shadow-3 bg-light-green'}                    
                     onClick={this.handleShowCards}
                     >
                       {showCardsButton}

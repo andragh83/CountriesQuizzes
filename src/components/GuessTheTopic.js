@@ -17,7 +17,7 @@ class GuessTheTopic extends Component {
         const { countries, topic } = this.props;
           this.setState({
               randomElement: countries[Math.floor(Math.random() * countries.length)],
-              buttonPlayValue: `Play 'Guess the ${topic}'!`
+              buttonPlayValue: `Guess the ${topic}`
             })
       }
 
@@ -32,7 +32,7 @@ class GuessTheTopic extends Component {
         } else {
             this.setState({
                 play: false,
-                buttonPlayValue: `Play 'Guess the ${topic}'!`
+                buttonPlayValue: `'Guess the ${topic}`
             })
             
         }
@@ -42,7 +42,7 @@ class GuessTheTopic extends Component {
 
       handleKeyDown = (event) => {
         if (event.key === 'Enter' || event.keyCode === 13) {
-            this.setState ({guessEntered: true})
+            this.setState ({guessEntered: true, guess: ''})
         }
       }
 
@@ -76,9 +76,8 @@ class GuessTheTopic extends Component {
         return(
             <div className={"tc pa2"}>
                 <button 
-                    className={'f6 link dim br3 ph3 pv3 mb2 dib white'}
+                    className={'f3 b link dim br3 ph3 pv3 mb2 dib white shadow-3'}
                     style={{
-                        fontSize: '1.5em', 
                         borderStyle: 'none', 
                         backgroundColor: 'rgb(0, 94, 102)',
                         width: '300px'
@@ -90,7 +89,7 @@ class GuessTheTopic extends Component {
                     play? 
                     <div>
                         <div className={'flex justify-center flex-column'}>
-                            <h2><span style={{textTransform: 'capitalize'}}>{topic}</span> of <span style={{borderBottom: '3px solid black'}}>{randomElement.name}</span>?</h2>
+                            <h2 className={'f3 tc mt2 mb3'}><span className={'ttc'}>{topic}</span> of <span className={'underline'}>{randomElement.name}</span>?</h2>
                         </div>
                         <input 
                             className={"ba tc br3 pa3"}
@@ -102,10 +101,9 @@ class GuessTheTopic extends Component {
                             value = {guess}
                             />
                         <button 
-                            className={'ba tc br3 pa3 navy bg-light-green self-center'}
+                            className={'b tc ml2 br3 pa3 bg-light-green shadow-3 self-center'}
                             style={{
-                                borderStyle: 'none', 
-                                marginLeft: '1em',
+                                borderStyle: 'none',                                
                                 width: '50px'
                                 }}
                             onClick = {() => this.handleOkButton()}
@@ -113,7 +111,7 @@ class GuessTheTopic extends Component {
                         OK
                         </button>
                         
-                        <button 
+                        {/* <button 
                             className={'ba tc br3 pa3 white bg-navy self-center'}
                             style={{
                                 borderStyle: 'none', 
@@ -125,24 +123,15 @@ class GuessTheTopic extends Component {
                             onClick = {() => this.newCountry(countries)}
                             >
                         Try another country
-                        </button>
+                        </button> */}
                         
                         {
                             guessEntered?
                                 (guess.toLowerCase()===randomElement[topic].toLowerCase()?
-                                    <div 
-                                        className={'flex justify-center flex-column'}
-                                        style={{color: 'green', fontSize: '2em', paddingTop: '0.8em'}}>
-                                        BRAVO! That's right! 
+                                    <div className={'flex justify-center flex-column'}>
+                                        <h2 className={'green mt3 mb2'}>BRAVO! That's right!</h2>  
                                         <button 
-                                            className={'ba tc br3 pa3 white bg-dark-green self-center'}
-                                            style={{
-                                                borderStyle: 'none', 
-                                                marginLeft: '1em',
-                                                marginRight: '1em',
-                                                marginTop: '0.5em',
-                                                width: '250px'
-                                                }}
+                                            className={'b ba br3 shadow-3 tc mv3 pa3 white bg-navy self-center'}                                            
                                             onClick = {() => this.newCountry(countries)}
                                             >
                                             Play again
@@ -150,8 +139,15 @@ class GuessTheTopic extends Component {
                                     </div>
                                     :
                                     <div className={'flex justify-center flex-column'}> 
-                                            <h2 className={'red'}>Wrong!</h2>
-                                        <button 
+                                            <h2 className={'red mt3 mb2'}>Wrong!</h2>
+                                            <h3 className={'mt1 mb3'}>The {topic} of {randomElement.name} is {randomElement[topic]}!</h3>
+                                            <button 
+                                            className={'b a br3 shadow-3 tc mv3 pa3 white bg-navy self-center'}                                            
+                                            onClick = {() => this.newCountry(countries)}
+                                            >
+                                            Play again!
+                                        </button>   
+                                        {/* <button 
                                             className={'ba tc br3 pa3 white bg-light-red self-center'}
                                             style={{
                                                 borderStyle: 'none', 
@@ -161,7 +157,7 @@ class GuessTheTopic extends Component {
                                             onClick = {this.wrongGuess}
                                         >
                                             Try again with the same country! 
-                                        </button>
+                                        </button> */}
                                         
                                     </div>)
                                 : <div> </div>
