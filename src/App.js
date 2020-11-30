@@ -40,8 +40,7 @@ class App extends Component {
       this.setState({play: false, playButton: 'PLAY'})
     } else {
       this.setState({play: true, playButton: 'CLOSE'})
-    }
-    
+      }    
   }
   
   handleSelectedTopic = (selected, countries) => {
@@ -60,18 +59,17 @@ class App extends Component {
   }
 
   render() {
+
     const { countries, searchedCountry, play, playButton, showCards, showCardsButton } = this.state;
-    // console.log('state:', this.state.countries)
     const filteredCountries = countries.filter(country => {
               return country.name.toLowerCase().includes(searchedCountry.toLowerCase())
-            }
-            )
-    console.log('countries', countries[0])
+            })    
+
     return (
       <div className={"tc"}>
         <h1 className={"tc"}>Know your Countries</h1>
         <button 
-            className={'f1 b br3 ph4 pv3 mb2 dib shadow-3 bg-light-green grow'}            
+            className={'f1 b br3 ph4 pv3 mv3 dib shadow-3 bg-light-green grow'}            
             onClick = {this.handlePlayButton}>
            {playButton}
         </button>
@@ -80,29 +78,22 @@ class App extends Component {
           <div>
                 <GuessTheTopic 
                   countries= {countries} 
-                  topic={Object.keys(countries[0])[5]}
-                  
-                  />
-              
+                  topic={Object.keys(countries[0])[5]}                  
+                  />              
                 <GuessTheTopic 
                   countries={countries} 
-                  topic={Object.keys(countries[0])[7]}
-                  
+                  topic={Object.keys(countries[0])[7]}                  
                   /> 
-
                 <GuessFlag 
-                  countries={countries} 
-                  
-                />
-              
+                  countries={countries}                   
+                />              
                 <div>
                     <button
-                    className={'f2 b link grow br3 ph4 pv3 mb2 dib shadow-3 bg-light-green'}                    
+                    className={'f2 b link grow br3 ph4 pv3 mv2 dib shadow-3 bg-light-green'}                    
                     onClick={this.handleShowCards}
                     >
                       {showCardsButton}
                     </button>
-
                     {
                       showCards? 
                       <div>
@@ -113,32 +104,30 @@ class App extends Component {
                       </div>
                       :
                       <div></div>
-                      }
-
-                </div>
-                
+                    }
+                </div>                
           </div>
           :
           <div></div>
         }
-        
-        
-      <footer>
-        <div className={'flex justify-center items-end mt4'}>
-          <div className={'ph2'}>
-              <a href="https://www.github.com/andragh83/" target="_blank" rel="noopener noreferrer"><img height="30px" src={github} alt="github" style={{margin: "10px auto"}}/></a>
-          </div>
-          <div className={'ph2'}>
-              <a href="https://www.facebook.com/andraghstudio/" target="_blank" rel="noopener noreferrer"><img height="30px" src={fb} alt="facebook" style={{margin: "10px auto"}}/></a>
-          </div>
-          <div className={'ph2'}>
-              <a href="https://twitter.com/andraghitulescu" target="_blank" rel="noopener noreferrer"><img height="30px" src={twitter} alt="facebook" style={{margin: "10px auto"}}/></a>
-          </div>
-          <div className={'ph2'}>
-              <a href="https://www.instagram.com/andragh83/" target="_blank" rel="noopener noreferrer"><img height="30px" src={insta} alt="instagram" style={{margin: "10px auto"}}/></a>
-          </div>
-          </div>
-      </footer>  
+                
+        <footer>
+          <div className={'flex justify-center items-end mt4'}>
+            <div className={'ph2'}>
+                <a href="https://www.github.com/andragh83/" target="_blank" rel="noopener noreferrer"><img height="30px" src={github} alt="github" style={{margin: "10px auto"}}/></a>
+            </div>
+            <div className={'ph2'}>
+                <a href="https://www.facebook.com/andraghstudio/" target="_blank" rel="noopener noreferrer"><img height="30px" src={fb} alt="facebook" style={{margin: "10px auto"}}/></a>
+            </div>
+            <div className={'ph2'}>
+                <a href="https://twitter.com/andraghitulescu" target="_blank" rel="noopener noreferrer"><img height="30px" src={twitter} alt="facebook" style={{margin: "10px auto"}}/></a>
+            </div>
+            <div className={'ph2'}>
+                <a href="https://www.instagram.com/andragh83/" target="_blank" rel="noopener noreferrer"><img height="30px" src={insta} alt="instagram" style={{margin: "10px auto"}}/></a>
+            </div>
+            </div>
+        </footer> 
+
       </div>
     );
   }

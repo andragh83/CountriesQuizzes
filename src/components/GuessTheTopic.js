@@ -26,18 +26,15 @@ class GuessTheTopic extends Component {
         if (!this.state.play) {
             this.setState({
                 play: true,
-                buttonPlayValue: `Close 'Guess the ${topic}'!`
+                buttonPlayValue: `Close 'Guess the ${topic}'`
             });
             
         } else {
             this.setState({
                 play: false,
-                buttonPlayValue: `'Guess the ${topic}`
-            })
-            
-        }
-            
-            
+                buttonPlayValue: `Guess the ${topic}`
+            })            
+          }                        
       }
 
       handleKeyDown = (event) => {
@@ -70,11 +67,9 @@ class GuessTheTopic extends Component {
     render() {
        const { countries, topic } = this.props;
        const { randomElement, play, guess, guessEntered, buttonPlayValue } = this.state;
-        
-       console.log('guess', guess, 'randomElement GuessTopic', randomElement[topic])
 
         return(
-            <div className={"tc pa2"}>
+            <div className={"tc mv3"}>
                 <button 
                     className={'f3 b link dim br3 ph3 pv3 mb2 dib white shadow-3'}
                     style={{
@@ -103,28 +98,13 @@ class GuessTheTopic extends Component {
                         <button 
                             className={'b tc ml2 br3 pa3 bg-light-green shadow-3 self-center'}
                             style={{
-                                borderStyle: 'none',                                
-                                width: '50px'
+                                borderStyle: 'none',                                                                
                                 }}
                             onClick = {() => this.handleOkButton()}
                             >
                         OK
                         </button>
-                        
-                        {/* <button 
-                            className={'ba tc br3 pa3 white bg-navy self-center'}
-                            style={{
-                                borderStyle: 'none', 
-                                marginLeft: '1em',
-                                marginRight: '1em',
-                                marginTop: '1em',
-                                width: '250px'
-                                }}
-                            onClick = {() => this.newCountry(countries)}
-                            >
-                        Try another country
-                        </button> */}
-                        
+
                         {
                             guessEntered?
                                 (guess.toLowerCase()===randomElement[topic].toLowerCase()?
@@ -161,15 +141,14 @@ class GuessTheTopic extends Component {
                                         
                                     </div>)
                                 : <div> </div>
-                        }
+                        }                        
                     </div> 
                     :
                     <div></div>
                 }
              
             </div>
-        )
-        }
+        )}
     
 }
 

@@ -31,17 +31,14 @@ class GuessTheTopic extends Component {
             this.setState({
                 play: true,
                 randomElement: arrayOf3[Math.floor(Math.random() * arrayOf3.length)],
-                buttonPlayValue: `Close 'Guess the Flag'!`
-            })
-            
+                buttonPlayValue: `Close 'Guess the Flag'`
+            })            
         } else {
             this.setState({
                 play: false,
-                buttonPlayValue: `Guess the Flag!`
-            })
-            
-        }
-            
+                buttonPlayValue: `Guess the Flag`
+            })            
+          }            
       }
 
       newPick = (arrayOf3) => {
@@ -57,26 +54,26 @@ class GuessTheTopic extends Component {
 
       picturesDisplay = (array) => {
 
-       const randomFlagArray = [];
+        const randomFlagArray = [];
 
-       randomFlagArray[0] = array[Math.floor(Math.random() * array.length)];
-       
-       array.forEach(item => {
-        if (item !== randomFlagArray[0]) {
-            randomFlagArray[1] = item;
+        randomFlagArray[0] = array[Math.floor(Math.random() * array.length)];
+        
+        array.forEach(item => {
+            if (item !== randomFlagArray[0]) {
+                randomFlagArray[1] = item;
+            }
+        });
+
+        array.forEach(item => {
+            if (item !== randomFlagArray[0] && item !== randomFlagArray[1]) 
+                randomFlagArray[2] = item
+        });
+        
+            this.setState ({flagsDisplay: randomFlagArray}) ;
         }
-       });
 
-       array.forEach(item => {
-        if (item !== randomFlagArray[0] && item !== randomFlagArray[1]) 
-            randomFlagArray[2] = item
-       });
-       
-        this.setState ({flagsDisplay: randomFlagArray}) ;
-      }
-
-      wrongAnswer = () => {
-        this.setState({guess: ''})
+        wrongAnswer = () => {
+            this.setState({guess: ''})
       }
 
       playAgain = (countries) => {
@@ -87,14 +84,13 @@ class GuessTheTopic extends Component {
             guess: ''})
       }
 
-
     render() {
        const { countries } = this.props;
        const { randomElement, play, guess, randomArrayOf3, flagsDisplay, buttonPlayValue } = this.state;
        console.log('random of array 3:', randomArrayOf3)
 
         return(
-            <div className={"tc pa2"}>
+            <div className={"tc mv3"}>
                 <button 
                     className={'b link dim br3 ph3 pv3 mb2 dib white shadow-3'}
                     style={{
@@ -158,7 +154,7 @@ class GuessTheTopic extends Component {
                             </button>
                         </div>
                         {
-                            guess ?
+                            guess?
                                 (guess.flag===randomElement.flag ?
                                     <div className={'flex justify-center flex-column'}>
                                         <h2 className={'green f3 b mv2'}>BRAVO! That's right!</h2>
@@ -183,7 +179,7 @@ class GuessTheTopic extends Component {
                                             Try Again
                                             </button>
                                     </div>)
-                                : <div> </div>
+                                : <div></div>
                         }
                     </div> 
                     :
