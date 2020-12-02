@@ -11,7 +11,8 @@ class GuessTheTopic extends Component {
             guess: '',
             flagsDisplay: [],
             guessEntered: false,
-            buttonPlayValue: ''
+            buttonPlayValue: '',
+            disabled: false
         };
       }
 
@@ -44,12 +45,14 @@ class GuessTheTopic extends Component {
       newPick = (arrayOf3) => {
         this.setState({
             play: true,
-            randomElement: arrayOf3[Math.floor(Math.random() * arrayOf3.length)]
+            randomElement: arrayOf3[Math.floor(Math.random() * arrayOf3.length)],
+            disabled: false
         })
      }
 
       handleMouseClick = (answer) => {
-            this.setState ({guess: answer})
+            this.setState ({guess: answer});
+            this.sendComponentScore(answer.flag);
       }
 
       picturesDisplay = (array) => {
@@ -73,7 +76,7 @@ class GuessTheTopic extends Component {
         }
 
         wrongAnswer = () => {
-            this.setState({guess: ''})
+            this.setState({guess: '', disabled: false})
       }
 
       playAgain = (countries) => {
@@ -81,12 +84,32 @@ class GuessTheTopic extends Component {
             randomArrayOf3: [countries[Math.floor(Math.random() * countries.length)],
                             countries[Math.floor(Math.random() * countries.length)],
                             countries[Math.floor(Math.random() * countries.length)]],
-            guess: ''})
+            guess: '',
+            disabled: false
+        })
       }
+
+      sendComponentScore = (answer) => {
+          console.log('flag co', answer, this.state.randomElement.flag)
+        this.setState({disabled: true})
+        if (answer===this.state.randomElement.flag) {
+                 this.props.addScore(true);
+             } else {
+                 this.props.addScore(false);
+             }
+       }
 
     render() {
        const { countries } = this.props;
-       const { randomElement, play, guess, randomArrayOf3, flagsDisplay, buttonPlayValue } = this.state;
+       const { 
+           randomElement, 
+           play, 
+           guess, 
+           randomArrayOf3, 
+           flagsDisplay, 
+           buttonPlayValue,
+           disabled
+        } = this.state;
        console.log('random of array 3:', randomArrayOf3)
 
         return(
@@ -119,6 +142,7 @@ class GuessTheTopic extends Component {
                                     fontSize: '3em'
                                     }}
                                     onClick = {() => this.handleMouseClick(flagsDisplay[0])}
+                                    disabled={disabled}
                                 >
                             Flag
                             </button>
@@ -134,6 +158,7 @@ class GuessTheTopic extends Component {
                                     fontSize: '3em'
                                     }}
                                     onClick = {() => this.handleMouseClick(flagsDisplay[1])}
+                                    disabled={disabled}
                                 >
                             Flag
                             </button>
@@ -149,9 +174,25 @@ class GuessTheTopic extends Component {
                                     fontSize: '3em'
                                     }}
                                     onClick = {() => this.handleMouseClick(flagsDisplay[2])}
+                                    disabled={disabled}
                                 >
                             Flag
                             </button>
+                            <div>
+                                <button 
+                                    className={'b ba br3 shadow-3 tc mt3 pa3 white bg-light-red self-center'}
+                                    style={{
+                                        borderStyle: 'none',                                                                
+                                        }}
+                                    onClick = {() => {
+                                                this.playAgain(countries); 
+                                                this.newPick(randomArrayOf3); 
+                                                this.picturesDisplay(randomArrayOf3);}
+                                                }
+                                >
+                                Don't know. Reload
+                                </button>
+                            </div>
                         </div>
                         {
                             guess?
@@ -167,7 +208,7 @@ class GuessTheTopic extends Component {
                                                 }
                                                 >
                                             Play Again
-                                            </button>
+                                        </button>
                                     </div>
                                     :
                                     <div className={'flex justify-center flex-column'}>

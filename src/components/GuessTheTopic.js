@@ -9,7 +9,9 @@ class GuessTheTopic extends Component {
             play: false,
             guess: '',
             guessEntered: false,
-            buttonPlayValue: ''
+            buttonPlayValue: '',
+            readOnly: false,
+            disabled: false,
         };
       }
 
@@ -39,16 +41,18 @@ class GuessTheTopic extends Component {
 
       handleKeyDown = (event) => {
         if (event.key === 'Enter' || event.keyCode === 13) {
-            this.setState ({guessEntered: true, guess: ''})
+            this.setState ({guessEntered: true, readOnly: true, disabled: true});
+            this.sendComponentScore(); 
         }
       }
 
       handleOkButton = (event) => {
-        this.setState ({guessEntered: true})
+        this.setState ({guessEntered: true, readOnly: true, disabled: true});
+        this.sendComponentScore(); 
       }
 
       onGuessEntered = (event) => {
-            this.setState ({guess: event.target.value})
+            this.setState ({guess: event.target.value});
             // console.log('keys', Object.keys(this.state.randomElement))
       }
 
@@ -58,16 +62,36 @@ class GuessTheTopic extends Component {
 
       newCountry = (array) => {
         this.setState ({
-            guessEntered: false, guess: '',
+            guessEntered: false, 
+            guess: '',
+            readOnly: false,
+            disabled: false,
             randomElement: array[Math.floor(Math.random() * array.length)],
 
         })
       }
 
+      sendComponentScore = () => {
+       if (this.state.guess.toLowerCase()===this.state.randomElement[this.props.topic].toLowerCase()){
+                this.props.addScore(true);
+            } else {
+                this.props.addScore(false);
+            }
+      }
+
     render() {
        const { countries, topic } = this.props;
-       const { randomElement, play, guess, guessEntered, buttonPlayValue } = this.state;
-
+       const { 
+           randomElement, 
+           play, 
+           guess, 
+           guessEntered, 
+           buttonPlayValue, 
+           readOnly,
+           disabled
+        } = this.state;
+       console.log('guess', guess, 'random', randomElement[topic]) 
+       console.log('score in main: ', this.state.componentScore);
         return(
             <div className={"tc mv3"}>
                 <button 
@@ -92,8 +116,10 @@ class GuessTheTopic extends Component {
                             type="text" 
                             placeholder="Write your answer here" 
                             onChange = {this.onGuessEntered}
-                            onKeyDown = {this.handleKeyDown}
+                            onKeyDown = {this.handleKeyDown}                        
                             value = {guess}
+                            readOnly = {readOnly}
+                            disabled = {disabled}
                             />
                         <button 
                             className={'b tc ml2 br3 pa3 bg-light-green shadow-3 self-center'}
@@ -101,9 +127,19 @@ class GuessTheTopic extends Component {
                                 borderStyle: 'none',                                                                
                                 }}
                             onClick = {() => this.handleOkButton()}
+                            disabled = {disabled}
                             >
                         OK
                         </button>
+                        <button 
+                            className={'b tc ml2 br3 pa3 bg-light-red white shadow-3 self-center'}                                            
+                            style={{
+                                borderStyle: 'none'
+                            }}
+                            onClick = {() => this.newCountry(countries)}
+                            >
+                            Don't know. Reload
+                        </button> 
 
                         {
                             guessEntered?
@@ -112,7 +148,7 @@ class GuessTheTopic extends Component {
                                         <h2 className={'green mt3 mb2'}>BRAVO! That's right!</h2>  
                                         <button 
                                             className={'b ba br3 shadow-3 tc mv3 pa3 white bg-navy self-center'}                                            
-                                            onClick = {() => this.newCountry(countries)}
+                                            onClick = {() => {this.newCountry(countries);}}
                                             >
                                             Play again
                                         </button>   
@@ -122,11 +158,11 @@ class GuessTheTopic extends Component {
                                             <h2 className={'red mt3 mb2'}>Wrong!</h2>
                                             <h3 className={'mt1 mb3'}>The {topic} of {randomElement.name} is {randomElement[topic]}!</h3>
                                             <button 
-                                            className={'b a br3 shadow-3 tc mv3 pa3 white bg-navy self-center'}                                            
-                                            onClick = {() => this.newCountry(countries)}
+                                                className={'b a br3 shadow-3 tc mb3 pa3 white bg-navy self-center'}                                            
+                                                onClick = {() => this.newCountry(countries)}
                                             >
                                             Play again!
-                                        </button>   
+                                            </button>   
                                         {/* <button 
                                             className={'ba tc br3 pa3 white bg-light-red self-center'}
                                             style={{

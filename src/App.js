@@ -21,7 +21,8 @@ class App extends Component {
         playButton: 'PLAY',
         selectedTopic: false,
         showCards: false,
-        showCardsButton: 'SHOW COUNTRIES'
+        showCardsButton: 'SHOW COUNTRIES',
+        generalScore: 0
     };
   }
 
@@ -43,10 +44,12 @@ class App extends Component {
       }    
   }
   
-  handleSelectedTopic = (selected, countries) => {
-    this.setState({
-      selectedTopic: selected
-    })
+  updateScore = (componentScore) => {
+    if (componentScore) {
+      this.setState({
+        generalScore: this.state.generalScore + 1
+      })
+    }
   }
   
   handleShowCards = () => {
@@ -60,7 +63,7 @@ class App extends Component {
 
   render() {
 
-    const { countries, searchedCountry, play, playButton, showCards, showCardsButton } = this.state;
+    const { countries, searchedCountry, play, playButton, showCards, showCardsButton, generalScore } = this.state;
     const filteredCountries = countries.filter(country => {
               return country.name.toLowerCase().includes(searchedCountry.toLowerCase())
             })    
@@ -68,6 +71,7 @@ class App extends Component {
     return (
       <div className={"tc"}>
         <h1 className={"tc"}>Know your Countries</h1>
+        <h2>Your score: {generalScore}</h2>
         <button 
             className={'f1 b br3 ph4 pv3 mv3 dib shadow-3 bg-light-green grow'}            
             onClick = {this.handlePlayButton}>
@@ -78,14 +82,17 @@ class App extends Component {
           <div>
                 <GuessTheTopic 
                   countries= {countries} 
-                  topic={Object.keys(countries[0])[5]}                  
+                  topic={Object.keys(countries[0])[5]}    
+                  addScore={this.updateScore}              
                   />              
                 <GuessTheTopic 
                   countries={countries} 
-                  topic={Object.keys(countries[0])[7]}                  
+                  topic={Object.keys(countries[0])[7]} 
+                  addScore={this.updateScore}                    
                   /> 
                 <GuessFlag 
-                  countries={countries}                   
+                  countries={countries} 
+                  addScore={this.updateScore}                      
                 />              
                 <div>
                     <button
