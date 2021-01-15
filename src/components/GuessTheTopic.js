@@ -138,7 +138,7 @@ class GuessTheTopic extends Component {
                             }}
                             onClick = {() => this.newCountry(countries)}
                             >
-                            Don't know. Reload
+                            Don't know. Change country
                         </button> 
 
                         {
