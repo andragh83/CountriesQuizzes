@@ -121,7 +121,7 @@ class GuessTheTopic extends Component {
                             disabled = {disabled}
                             />
                         <button 
-                            className={'b tc ml2 br-pill pa3 bg-light-green shadow-3 self-center'}
+                            className={'b tc ml2 br-pill pa3 white bg-light-green shadow-3 self-center'}
                             style={{
                                 borderStyle: 'none',   
                                 backgroundColor: '#00bf72'                                                             

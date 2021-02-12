@@ -134,10 +134,9 @@ function App(props) {
                 />              
                 <div>
                     <button
-                    className={'f3 link grow br-pill ph4 pv3 mv2 dib shadow-3'} 
+                    className={'f3 link grow br-pill ph4 pv3 mv2 dib shadow-3 white'} 
                     style = {{
-                      backgroundColor: '#004d7a', 
-                      color: "#ffffff",
+                      backgroundColor: '#051937',
                       borderStyle: 'none',
                     }}                   
                     onClick={handleShowCards}
