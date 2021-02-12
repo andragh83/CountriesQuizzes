@@ -106,7 +106,12 @@ function App(props) {
         <h1 className={"tc"}>Know your Countries</h1>
         <h2>Your score: {generalScore}</h2>
         <button 
-            className={'f1 b br3 ph4 pv3 mv3 dib shadow-3 bg-light-green grow'}            
+            className={'f2 br-pill ph4 pv3 mv3 dib shadow-3 grow'}            
+                    style={{
+                        backgroundColor: '#051937', 
+                        color: "#ffffff",
+                        borderStyle: 'none',
+                        }}
             onClick = {handlePlayButton}>
            {playButton}
         </button>
@@ -129,7 +134,12 @@ function App(props) {
                 />              
                 <div>
                     <button
-                    className={'f2 b link grow br3 ph4 pv3 mv2 dib shadow-3 bg-light-green'}                    
+                    className={'f3 link grow br-pill ph4 pv3 mv2 dib shadow-3'} 
+                    style = {{
+                      backgroundColor: '#004d7a', 
+                      color: "#ffffff",
+                      borderStyle: 'none',
+                    }}                   
                     onClick={handleShowCards}
                     >
                       {showCardsButton}

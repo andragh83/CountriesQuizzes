@@ -34,7 +34,7 @@ export const searchCountries = (state=initialStateSearch, action={}) => {
             return {
                 ...state,
                 showCards: !state.showCards,
-                showCardsButton: state.showCards? 'SHOW COUNTRIES' : 'Hide Country'
+                showCardsButton: state.showCards? 'Show Countries' : 'Hide Countries'
                 }
             }
         case GENERAL_SCORE: {

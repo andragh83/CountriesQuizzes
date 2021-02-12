@@ -90,16 +90,15 @@ class GuessTheTopic extends Component {
            readOnly,
            disabled
         } = this.state;
-       console.log('guess', guess, 'random', randomElement[topic]) 
-       console.log('score in main: ', this.state.componentScore);
         return(
             <div className={"tc mv3"}>
                 <button 
-                    className={'f3 b link dim br3 ph3 pv3 mb2 dib white shadow-3'}
+                    className={'f3 link dim br-pill ph3 pv3 mb2 dib shadow-3'}
                     style={{
                         borderStyle: 'none', 
-                        backgroundColor: 'rgb(0, 94, 102)',
-                        width: '300px'
+                        backgroundColor: '#a8eb12',
+                        width: '300px',
+                        
                         }}
                     onClick = {this.handleClickPlay}>
                     {buttonPlayValue}
@@ -111,7 +110,7 @@ class GuessTheTopic extends Component {
                             <h2 className={'f3 tc mt2 mb3'}><span className={'ttc'}>{topic}</span> of <span className={'underline'}>{randomElement.name}</span>?</h2>
                         </div>
                         <input 
-                            className={"ba tc br3 pa3"}
+                            className={"ba tc br-pill pa3"}
                             style={{width: '300px'}}
                             type="text" 
                             placeholder="Write your answer here" 
@@ -122,9 +121,10 @@ class GuessTheTopic extends Component {
                             disabled = {disabled}
                             />
                         <button 
-                            className={'b tc ml2 br3 pa3 bg-light-green shadow-3 self-center'}
+                            className={'b tc ml2 br-pill pa3 bg-light-green shadow-3 self-center'}
                             style={{
-                                borderStyle: 'none',                                                                
+                                borderStyle: 'none',   
+                                backgroundColor: '#00bf72'                                                             
                                 }}
                             onClick = {() => this.handleOkButton()}
                             disabled = {disabled}
@@ -132,9 +132,10 @@ class GuessTheTopic extends Component {
                         OK
                         </button>
                         <button 
-                            className={'b tc ml2 br3 pa3 bg-light-red white shadow-3 self-center'}                                            
+                            className={'b tc ml2 br-pill pa3 white shadow-3 self-center'}                                            
                             style={{
-                                borderStyle: 'none'
+                                borderStyle: 'none',
+                                backgroundColor: '#008793'
                             }}
                             onClick = {() => this.newCountry(countries)}
                             >
@@ -145,9 +146,12 @@ class GuessTheTopic extends Component {
                             guessEntered?
                                 (guess.toLowerCase()===randomElement[topic].toLowerCase()?
                                     <div className={'flex justify-center flex-column'}>
-                                        <h2 className={'green mt3 mb2'}>BRAVO! That's right!</h2>  
+                                        <h2 className={'b mt3 mb2'}>BRAVO! That's right!</h2>  
                                         <button 
-                                            className={'b ba br3 shadow-3 tc mv3 pa3 white bg-navy self-center'}                                            
+                                            className={'b ba br-pill shadow-3 tc mv3 pa3 white bg-navy self-center'}
+                                            style={{
+                                                borderStyle: 'none',
+                                                    }}
                                             onClick = {() => {this.newCountry(countries);}}
                                             >
                                             Play again
@@ -155,10 +159,10 @@ class GuessTheTopic extends Component {
                                     </div>
                                     :
                                     <div className={'flex justify-center flex-column'}> 
-                                            <h2 className={'red mt3 mb2'}>Wrong!</h2>
+                                            <h2 className={'b mt3 mb2'}>Keep trying!</h2>
                                             <h3 className={'mt1 mb3'}>The {topic} of {randomElement.name} is {randomElement[topic]}!</h3>
                                             <button 
-                                                className={'b a br3 shadow-3 tc mb3 pa3 white bg-navy self-center'}                                            
+                                                className={'b a br-pill shadow-3 tc mb3 pa3 white bg-navy self-center'}                                            
                                                 onClick = {() => this.newCountry(countries)}
                                             >
                                             Play again!

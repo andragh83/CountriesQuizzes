@@ -1,10 +1,13 @@
 body {
   font-family: 'Roboto', sans-serif;
+  background-image: linear-gradient(to right , #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  color: #e7e5e5
 }
 
 h1 {
   /* color: rgb(0, 94, 102); */
-  font-family: 'Bungee Shade', cursive;
+  font-family: 'Playfair Display SC', serif;
+  text-shadow: 2px 2px 4px #000000;
   font-size: 3em !important;
 }
 
@@ -22,4 +25,8 @@ footer {
   footer {
     height: 0px !important;
   }
+}
+
+button {
+  outline: none !important;
 }

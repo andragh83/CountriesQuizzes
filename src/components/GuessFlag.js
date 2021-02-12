@@ -115,11 +115,11 @@ class GuessTheTopic extends Component {
         return(
             <div className={"tc mv3"}>
                 <button 
-                    className={'b link dim br3 ph3 pv3 mb2 dib white shadow-3'}
+                    className={'link dim br-pill ph3 pv3 mb2 dib shadow-3'}
                     style={{
                         fontSize: '1.5em', 
                         borderStyle: 'none', 
-                        backgroundColor: 'rgb(0, 94, 102)',
+                        backgroundColor: '#a8eb12',
                         width: '300px'
                         }}
                     onClick = {() => {this.handleClickPlay(randomArrayOf3); this.picturesDisplay(randomArrayOf3)}}>
@@ -180,9 +180,10 @@ class GuessTheTopic extends Component {
                             </button>
                             <div>
                                 <button 
-                                    className={'b ba br3 shadow-3 tc mt3 pa3 white bg-light-red self-center'}
+                                    className={'b ba br-pill shadow-3 tc mt3 pa3 white self-center'}
                                     style={{
-                                        borderStyle: 'none',                                                                
+                                        borderStyle: 'none',   
+                                        backgroundColor: '#008793'                                                             
                                         }}
                                     onClick = {() => {
                                                 this.playAgain(countries); 
@@ -198,9 +199,9 @@ class GuessTheTopic extends Component {
                             guess?
                                 (guess.flag===randomElement.flag ?
                                     <div className={'flex justify-center flex-column'}>
-                                        <h2 className={'green f3 b mv2'}>BRAVO! That's right!</h2>
+                                        <h2 className={'f3 b mv2'}>BRAVO! That's right!</h2>
                                         <button 
-                                            className={'b ba br3 shadow-3 tc mv3 pa3 white bg-navy self-center'}                                            
+                                            className={'b ba br-pill shadow-3 tc mt3 pa3 white bg-navy self-center'}                                            
                                             onClick = {() => {
                                                 this.playAgain(countries); 
                                                 this.newPick(randomArrayOf3); 
@@ -212,9 +213,9 @@ class GuessTheTopic extends Component {
                                     </div>
                                     :
                                     <div className={'flex justify-center flex-column'}>
-                                            <h2 className={'red f3 b mv2'}>Wrong! That's the flag of <span className={'underline'}>{guess.name}!</span></h2>
+                                            <h2 className={'b f3 b mv2'}>Keep trying! That's the flag of <span className={'underline'}>{guess.name}!</span></h2>
                                             <button 
-                                                className={'b ba br3 shadow-3 tc mv3 pa3 white bg-navy self-center'}                                            
+                                                className={'b ba br-pill shadow-3 tc mv3 pa3 white bg-navy self-center'}                                            
                                                 onClick = {this.wrongAnswer}
                                             >
                                             Try Again

@@ -2,7 +2,14 @@ import React from 'react';
 
 const Card = ({ img, name, region, capital, languages, population}) => {
     return(
-        <div className={"tc pa3 br3 grow shadow-3 tl w-100"}>
+        <div 
+            className={"tc pa3 br3 grow shadow-3 tl w-100"}
+            style={{
+                boxShadow: '0 0 1rem 0 rgba(0, 0, 0, .2)',
+                backgroundColor: 'rgba(255, 255, 255, .15)',
+                backdropFilter: 'blur(5px)'
+            }}
+        >
             <img 
                 className={'h4 w5 dib ba b--black-05 pa2'}
                 alt='flag' 
