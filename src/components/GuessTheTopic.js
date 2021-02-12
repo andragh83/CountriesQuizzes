@@ -132,7 +132,7 @@ class GuessTheTopic extends Component {
                         OK
                         </button>
                         <button 
-                            className={'b tc ml2 br-pill pa3 white shadow-3 self-center'}                                            
+                            className={'b ba br-pill shadow-3 tc mt3 ml3 pa3 white self-center'}                                            
                             style={{
                                 borderStyle: 'none',
                                 backgroundColor: '#008793'
