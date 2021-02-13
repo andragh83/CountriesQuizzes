@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Button from '../components/Button';
+import Flag from '../components/Flag';
 
 class GuessTheTopic extends Component {
 
@@ -114,7 +116,14 @@ class GuessTheTopic extends Component {
 
         return(
             <div className={"tc mv3"}>
-                <button 
+                <Button 
+                    bgColor={'#a8eb12'}
+                    text={buttonPlayValue}
+                    textSize={'f3'}
+                    width={'300px'}
+                    onClick= {() => {this.handleClickPlay(randomArrayOf3); this.picturesDisplay(randomArrayOf3)}}
+                    />
+                {/* <button 
                     className={'link dim br-pill ph3 pv3 mb2 dib shadow-3'}
                     style={{
                         fontSize: '1.5em', 
@@ -124,75 +133,39 @@ class GuessTheTopic extends Component {
                         }}
                     onClick = {() => {this.handleClickPlay(randomArrayOf3); this.picturesDisplay(randomArrayOf3)}}>
                     {buttonPlayValue}
-                </button>
+                </button> */}
                 {
                     play? 
                     <div>                        
                         <h2 className={'f3 tc mv2'}>Flag of <span className={'underline'}>{randomElement.name}?</span></h2>                        
                         <div className={'pa3'}>
-                            <button 
-                                className={'ba tc mv1 mh1 pa3 ph3 mid-gray'}
-                                style={{
-                                    backgroundImage: `url(${flagsDisplay[0].flag})`,
-                                    backgroundSize: 'cover', 
-                                    backgroundPosition: 'center',
-                                    display: 'inline-block',
-                                    width: '200px',
-                                    color: 'rgba(0, 0, 0, 0)',
-                                    fontSize: '3em'
-                                    }}
-                                    onClick = {() => this.handleMouseClick(flagsDisplay[0])}
-                                    disabled={disabled}
-                                >
-                            Flag
-                            </button>
-                            <button 
-                                className={'ba tc mv1 mh2 pa3 ph3 mid-gray'}
-                                style={{
-                                    backgroundImage: `url(${flagsDisplay[1].flag})`,
-                                    backgroundSize: 'cover', 
-                                    backgroundPosition: 'center',
-                                    display: 'inline-block',
-                                    width: '200px',
-                                    color: 'rgba(0, 0, 0, 0)',
-                                    fontSize: '3em'
-                                    }}
-                                    onClick = {() => this.handleMouseClick(flagsDisplay[1])}
-                                    disabled={disabled}
-                                >
-                            Flag
-                            </button>
-                            <button 
-                                className={'ba tc mv1 mh1 pa3 ph3 mid-gray'}
-                                style={{
-                                    backgroundImage: `url(${flagsDisplay[2].flag})`,
-                                    backgroundSize: 'cover', 
-                                    backgroundPosition: 'center',
-                                    display: 'inline-block',
-                                    width: '200px',
-                                    color: 'rgba(0, 0, 0, 0)',
-                                    fontSize: '3em'
-                                    }}
-                                    onClick = {() => this.handleMouseClick(flagsDisplay[2])}
-                                    disabled={disabled}
-                                >
-                            Flag
-                            </button>
+                            <Flag 
+                                randomCountry={flagsDisplay[0].flag}
+                                onClick = {() => this.handleMouseClick(flagsDisplay[0])}
+                                disabled={disabled}
+                            />
+                            <Flag 
+                                randomCountry={flagsDisplay[1].flag}
+                                onClick = {() => this.handleMouseClick(flagsDisplay[1])}
+                                disabled={disabled}
+                            />
+                            <Flag 
+                                randomCountry={flagsDisplay[2].flag}
+                                onClick = {() => this.handleMouseClick(flagsDisplay[2])}
+                                disabled={disabled}
+                            />                        
                             <div>
-                                <button 
-                                    className={'b ba br-pill shadow-3 tc mt3 pa3 white self-center'}
-                                    style={{
-                                        borderStyle: 'none',   
-                                        backgroundColor: '#008793'                                                             
-                                        }}
-                                    onClick = {() => {
-                                                this.playAgain(countries); 
-                                                this.newPick(randomArrayOf3); 
-                                                this.picturesDisplay(randomArrayOf3);}
-                                                }
-                                >
-                                Don't know. Reload
-                                </button>
+                            <Button 
+                                bgColor={'#008793'}
+                                color={'white'}
+                                text={`Don't know. Reload`}
+                                textSize={'f5'}
+                                onClick = {() => {
+                                    this.playAgain(countries); 
+                                    this.newPick(randomArrayOf3); 
+                                    this.picturesDisplay(randomArrayOf3);}
+                                    }
+                                />
                             </div>
                         </div>
                         {
@@ -200,26 +173,28 @@ class GuessTheTopic extends Component {
                                 (guess.flag===randomElement.flag ?
                                     <div className={'flex justify-center flex-column'}>
                                         <h2 className={'f3 b mv2'}>BRAVO! That's right!</h2>
-                                        <button 
-                                            className={'b ba br-pill shadow-3 tc mt3 pa3 white bg-navy self-center'}                                            
+                                        <Button 
+                                            bgColor={'#051937'}
+                                            text={`Play Again`}
+                                            color={'white'}
+                                            textSize={'f5'}
                                             onClick = {() => {
                                                 this.playAgain(countries); 
                                                 this.newPick(randomArrayOf3); 
                                                 this.picturesDisplay(randomArrayOf3);}
                                                 }
-                                                >
-                                            Play Again
-                                        </button>
+                                            />
                                     </div>
                                     :
                                     <div className={'flex justify-center flex-column'}>
                                             <h2 className={'b f3 b mv2'}>Keep trying! That's the flag of <span className={'underline'}>{guess.name}!</span></h2>
-                                            <button 
-                                                className={'b ba br-pill shadow-3 tc mv3 pa3 white bg-navy self-center'}                                            
+                                            <Button 
+                                                bgColor={'#051937'}
+                                                text={`Try Again`}
+                                                color={'white'}
+                                                textSize={'f5'}
                                                 onClick = {this.wrongAnswer}
-                                            >
-                                            Try Again
-                                            </button>
+                                            />
                                     </div>)
                                 : <div></div>
                         }

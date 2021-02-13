@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '../components/Button';
 
 class GuessTheTopic extends Component {
 
@@ -12,6 +13,7 @@ class GuessTheTopic extends Component {
             buttonPlayValue: '',
             readOnly: false,
             disabled: false,
+            giveUp: false
         };
       }
 
@@ -57,7 +59,15 @@ class GuessTheTopic extends Component {
       }
 
       wrongGuess = () => {
-        this.setState ({guessEntered: false, guess: ''})
+        this.setState ({guessEntered: false, guess: '', disabled: false, readOnly: false,})
+      }
+
+      handleGiveUp = () => {
+          if (this.state.giveUp) {
+              this.setState({giveUp: false})
+          } else {
+            this.setState({giveUp: true})
+          }
       }
 
       newCountry = (array) => {
@@ -88,21 +98,18 @@ class GuessTheTopic extends Component {
            guessEntered, 
            buttonPlayValue, 
            readOnly,
-           disabled
+           disabled,
+           giveUp
         } = this.state;
         return(
             <div className={"tc mv3"}>
-                <button 
-                    className={'f3 link dim br-pill ph3 pv3 mb2 dib shadow-3'}
-                    style={{
-                        borderStyle: 'none', 
-                        backgroundColor: '#a8eb12',
-                        width: '300px',
-                        
-                        }}
-                    onClick = {this.handleClickPlay}>
-                    {buttonPlayValue}
-                </button>
+                <Button 
+                    bgColor={'#a8eb12'}
+                    text={buttonPlayValue}
+                    textSize={'f3'}
+                    width={'300px'}
+                    onClick = {this.handleClickPlay}
+                    />                
                 {
                     play? 
                     <div>
@@ -120,65 +127,65 @@ class GuessTheTopic extends Component {
                             readOnly = {readOnly}
                             disabled = {disabled}
                             />
-                        <button 
-                            className={'b tc ml2 br-pill pa3 white bg-light-green shadow-3 self-center'}
-                            style={{
-                                borderStyle: 'none',   
-                                backgroundColor: '#00bf72'                                                             
-                                }}
+                        <Button 
+                            bgColor={'#00bf72'}
+                            text={`OK`}
+                            color={'white mh2'}
+                            textSize={'f5 b'}
                             onClick = {() => this.handleOkButton()}
-                            disabled = {disabled}
-                            >
-                        OK
-                        </button>
-                        <button 
-                            className={'b ba br-pill shadow-3 tc mt3 ml3 pa3 white self-center'}                                            
-                            style={{
-                                borderStyle: 'none',
-                                backgroundColor: '#008793'
-                            }}
+                            />
+                        <Button 
+                            bgColor={'#008793'}
+                            text={`Change country`}
+                            color={'white'}
+                            textSize={'f5 b'}
                             onClick = {() => this.newCountry(countries)}
-                            >
-                            Don't know. Change country
-                        </button> 
-
+                            />
                         {
                             guessEntered?
                                 (guess.toLowerCase()===randomElement[topic].toLowerCase()?
                                     <div className={'flex justify-center flex-column'}>
                                         <h2 className={'b mt3 mb2'}>BRAVO! That's right!</h2>  
-                                        <button 
-                                            className={'b ba br-pill shadow-3 tc mv3 pa3 white bg-navy self-center'}
-                                            style={{
-                                                borderStyle: 'none',
-                                                    }}
-                                            onClick = {() => {this.newCountry(countries);}}
-                                            >
-                                            Play again
-                                        </button>   
+                                        <Button 
+                                                bgColor={'#051937'}
+                                                text={`Play again!`}
+                                                color={'white'}
+                                                textSize={'b f5'}
+                                                onClick = {() => this.newCountry(countries)}
+                                            />                           
                                     </div>
                                     :
-                                    <div className={'flex justify-center flex-column'}> 
-                                            <h2 className={'b mt3 mb2'}>Keep trying!</h2>
-                                            <h3 className={'mt1 mb3'}>The {topic} of {randomElement.name} is {randomElement[topic]}!</h3>
-                                            <button 
-                                                className={'b a br-pill shadow-3 tc mb3 pa3 white bg-navy self-center'}                                            
-                                                onClick = {() => this.newCountry(countries)}
-                                            >
-                                            Play again!
-                                            </button>   
-                                        {/* <button 
-                                            className={'ba tc br3 pa3 white bg-light-red self-center'}
-                                            style={{
-                                                borderStyle: 'none', 
-                                                marginLeft: '1em',
-                                                width: '250px'
-                                                }}
-                                            onClick = {this.wrongGuess}
-                                        >
-                                            Try again with the same country! 
-                                        </button> */}
-                                        
+                                    <div>
+                                        <div className={'flex justify-center'}>                                         
+                                            <Button 
+                                                bgColor={'#04c3d1'}
+                                                text={`Try again!`}
+                                                color={'white'}
+                                                textSize={'b f5'}
+                                                onClick = {this.wrongGuess}
+                                            />
+                                            <Button 
+                                                bgColor={'#0298a3'}
+                                                text={`Give Up`}
+                                                color={'white ml2'}
+                                                textSize={'f5 b'}
+                                                onClick = {this.handleGiveUp}
+                                            />
+                                        </div>     
+                                            {giveUp ?
+                                                <div className={'flex justify-center flex-column'}>
+                                                    <h3 className={'b mt2 mb3'}>The {topic} of {randomElement.name} is {randomElement[topic]}!</h3>
+                                                    <Button 
+                                                        bgColor={'#051937'}
+                                                        text={`Play again!`}
+                                                        color={'white'}
+                                                        textSize={'f5'}
+                                                        onClick = {() => this.newCountry(countries)}
+                                                    /> 
+                                                </div>
+                                                :<div></div>
+                                            }
+                                            
                                     </div>)
                                 : <div> </div>
                         }                        

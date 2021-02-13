@@ -2,8 +2,9 @@ import React, { useState ,useEffect } from 'react';
 import { connect } from 'react-redux';
 import CardList from '../components/CardList';
 import SearchField from '../components/SearchField';
-import GuessTheTopic from '../components/GuessTheTopic';
-import GuessFlag from '../components/GuessFlag'
+import GuessTheTopic from './GuessTheTopic';
+import GuessFlag from './GuessFlag'
+import Button from '../components/Button';
 
 import github from "../img/github.svg"; 
 import fb from "../img/fb.png"; 
@@ -49,6 +50,7 @@ function App(props) {
           handleShowCards,
         } = props;
 
+  // moving state into actions and reducer
   // const [countries, setCountries] = useState([]);
   // const [searchedCountry, setSearchedCountry] = useState('');
   // const [play, setPlay] = useState(false);
@@ -58,6 +60,7 @@ function App(props) {
   const [generalScore, setGeneralScore] = useState(0);
 
   useEffect(() => {
+    // moving to actions and reducer
     // console.log(props.store.getState());
     // fetch('https://restcountries.eu/rest/v2/all')
     // .then(response => response.json())
@@ -65,10 +68,12 @@ function App(props) {
     props.onRequestCountries()   
   }, [])
 
+  // moving to actions and reducer
   // const onValueEntered = (event) => {
   //   setSearchedCountry(event.target.value);
   // }
 
+  // moving to actions and reducer
   // const handlePlayButton = () => {
   //   if (play) {
   //     setPlay(false);
@@ -85,6 +90,7 @@ function App(props) {
     }
   }
   
+  // moving to actions and reducer
   // const handleShowCards = () => {
   //   if (!showCards) {
   //     setShowCards(true);
@@ -105,16 +111,13 @@ function App(props) {
       <div className={'tc'}>
         <h1 className={'tc'}>Countries Quizzes</h1>
         <h2 className={'f2'}>Your score: {generalScore}</h2>
-        <button 
-            className={'f2 br-pill ph4 pv3 mv3 dib shadow-3 grow'}            
-                    style={{
-                        backgroundColor: '#051937', 
-                        color: "#ffffff",
-                        borderStyle: 'none',
-                        }}
-            onClick = {handlePlayButton}>
-           {playButton}
-        </button>
+        <Button 
+          bgColor={'#051937'}
+          color={'white'}
+          text={playButton}
+          textSize={'f2'}
+          onClick= {handlePlayButton}
+        />
         {
           play?
           <div>
@@ -133,16 +136,13 @@ function App(props) {
                   addScore={updateScore}                      
                 />              
                 <div>
-                    <button
-                    className={'f3 link grow br-pill ph4 pv3 mv2 dib shadow-3 white'} 
-                    style = {{
-                      backgroundColor: '#051937',
-                      borderStyle: 'none',
-                    }}                   
-                    onClick={handleShowCards}
-                    >
-                      {showCardsButton}
-                    </button>
+                  <Button 
+                    bgColor={'#051937'}
+                    color={'white'}
+                    textSize={'f3'}
+                    text={showCardsButton}
+                    onClick= {handleShowCards}
+                  />
                     {
                       showCards? 
                       <div>
