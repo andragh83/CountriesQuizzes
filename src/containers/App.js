@@ -102,9 +102,9 @@ function App(props) {
             })    
 
     return (
-      <div className={"tc"}>
-        <h1 className={"tc"}>Know your Countries</h1>
-        <h2>Your score: {generalScore}</h2>
+      <div className={'tc'}>
+        <h1 className={'tc'}>Countries Quizzes</h1>
+        <h2 className={'f2'}>Your score: {generalScore}</h2>
         <button 
             className={'f2 br-pill ph4 pv3 mv3 dib shadow-3 grow'}            
                     style={{
