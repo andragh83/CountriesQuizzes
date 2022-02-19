@@ -1,0 +1,28 @@
+.fadeInClass {
+  animation: 0.2s fadeIn both;
+  animation-delay: 0.1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.blink {
+  animation: 0.7s blinkIn infinite;
+}
+
+@keyframes blinkIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

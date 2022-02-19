@@ -19,6 +19,8 @@ import {
   setShowCards,
   requestCountries,
 } from "../actions";
+import FadeInWrapper from "../components/fadeInWrapper";
+import BlinkWrapper from "../components/blinkWrapper";
 
 const mapStateToProps = (state) => {
   return {
@@ -27,8 +29,8 @@ const mapStateToProps = (state) => {
     playButton: state.searchCountries.playButton,
     showCards: state.searchCountries.showCards,
     showCardsButton: state.searchCountries.showCardsButton,
-
     countries: state.requestCountries.countries,
+    error: state.requestCountries.error,
     isPending: state.requestCountries.isPending,
     error: state.requestCountries.error,
   };
@@ -58,6 +60,7 @@ function App(props) {
     onValueEntered,
     handlePlayButton,
     handleShowCards,
+    error,
   } = props;
 
   // moving state into actions and reducer
@@ -112,61 +115,95 @@ function App(props) {
 
   // }
 
-  const filteredCountries = countries.filter((country) => {
-    return country.name.common
-      .toLowerCase()
-      .includes(searchedCountry.toLowerCase());
-  });
+  const filteredCountries =
+    countries && Array.isArray(countries)
+      ? countries.filter((country) => {
+          return country.name.common
+            .toLowerCase()
+            .includes(searchedCountry.toLowerCase());
+        })
+      : [];
+
+  console.log("countries", countries);
 
   return (
     <div className={"tc"}>
-      <h1 className={"tc"}>Countries Quizzes</h1>
+      <h1 className={"tc"}>Countries Game</h1>
       <h2 className={"f2"}>Your score: {generalScore}</h2>
-      <Button
-        bgColor={"#051937"}
-        color={"white"}
-        text={playButton}
-        textSize={"f2"}
-        onClick={handlePlayButton}
-      />
-      {play ? (
-        <div>
-          <GuessTheTopic
-            countries={countries}
-            topic={Object.keys(countries[0])[11]}
-            addScore={updateScore}
-          />
-          <GuessTheTopic
-            countries={countries}
-            topic={Object.keys(countries[0])[13]}
-            addScore={updateScore}
-          />
-          <GuessFlag countries={countries} addScore={updateScore} />
-          <div>
+
+      {countries && !countries.message && countries[0] ? (
+        <>
+          <FadeInWrapper>
             <Button
               bgColor={"#051937"}
               color={"white"}
-              textSize={"f3"}
-              text={showCardsButton}
-              onClick={handleShowCards}
+              text={playButton}
+              textSize={"f2"}
+              onClick={handlePlayButton}
             />
-            {showCards ? (
+          </FadeInWrapper>
+
+          {play ? (
+            <div>
+              <GuessTheTopic
+                countries={countries}
+                topic={Object.keys(countries[0])[11]}
+                addScore={updateScore}
+              />
+              <GuessTheTopic
+                countries={countries}
+                topic={Object.keys(countries[0])[13]}
+                addScore={updateScore}
+              />
+              <GuessFlag countries={countries} addScore={updateScore} />
               <div>
-                <SearchField
-                  onValueEntered={onValueEntered}
-                  value={searchedCountry}
+                <Button
+                  bgColor={"#051937"}
+                  color={"white"}
+                  textSize={"f3"}
+                  text={showCardsButton}
+                  onClick={handleShowCards}
                 />
-                <div className={"flex justify-center flex-wrap"}>
-                  <CardList countries={filteredCountries} />
-                </div>
+                {showCards ? (
+                  <div>
+                    <SearchField
+                      onValueEntered={onValueEntered}
+                      value={searchedCountry}
+                    />
+                    <div className={"flex justify-center flex-wrap"}>
+                      <CardList countries={countries && filteredCountries} />
+                    </div>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
               </div>
-            ) : (
-              <div></div>
-            )}
-          </div>
+            </div>
+          ) : (
+            <div></div>
+          )}
+        </>
+      ) : error || countries.message ? (
+        <div
+          style={{
+            paddingTop: "20px",
+            paddingBottom: "20px",
+            fontSize: "20px",
+            fontWeight: "bold",
+          }}
+        >
+          &#127758; We couldn't load game data, please try again later &#127758;
         </div>
       ) : (
-        <div></div>
+        <div
+          style={{
+            paddingTop: "20px",
+            paddingBottom: "20px",
+            fontSize: "20px",
+          }}
+        >
+          Loading countries... <BlinkWrapper>&#127758;</BlinkWrapper>
+        </div>
       )}
 
       <footer>
