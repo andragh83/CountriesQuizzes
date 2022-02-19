@@ -93,7 +93,6 @@ class GuessTheTopic extends Component {
   };
 
   sendComponentScore = (answer) => {
-    console.log("flag co", answer, this.state.randomElement.flag);
     this.setState({ disabled: true });
     if (answer === this.state.randomElement.flags.svg) {
       this.props.addScore(true);
@@ -113,7 +112,6 @@ class GuessTheTopic extends Component {
       buttonPlayValue,
       disabled,
     } = this.state;
-    console.log("random of array 3:", randomArrayOf3);
 
     return (
       <div className={"tc mv3"}>

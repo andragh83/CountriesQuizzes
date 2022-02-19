@@ -53,7 +53,6 @@ class GuessTheTopic extends Component {
 
   onGuessEntered = (event) => {
     this.setState({ guess: event.target.value });
-    // console.log('keys', Object.keys(this.state.randomElement))
   };
 
   wrongGuess = () => {
@@ -85,15 +84,6 @@ class GuessTheTopic extends Component {
 
   sendComponentScore = () => {
     const { topic } = this.props;
-    console.log("topic", topic);
-    console.log(
-      "this.state.guess.toLowerCase()",
-      this.state.guess.toLowerCase()
-    );
-    console.log(
-      "this.state.randomElement[this.props.topic].toLowerCase()",
-      this.state.randomElement[this.props.topic].toLowerCase()
-    );
     if (
       (topic === "capital" &&
         this.state.guess.toLowerCase() ===
@@ -121,7 +111,6 @@ class GuessTheTopic extends Component {
       giveUp,
     } = this.state;
 
-    console.log("random Element", randomElement);
     return (
       <div className={"tc mv3"}>
         <Button

@@ -32,7 +32,6 @@ const mapStateToProps = (state) => {
     countries: state.requestCountries.countries,
     error: state.requestCountries.error,
     isPending: state.requestCountries.isPending,
-    error: state.requestCountries.error,
   };
 };
 
@@ -73,12 +72,15 @@ function App(props) {
   const [generalScore, setGeneralScore] = useState(0);
 
   useEffect(() => {
+    let { onRequestCountries } = props;
     // moving to actions and reducer
-    // console.log(props.store.getState());
+
     // fetch('https://restcountries.eu/rest/v2/all')
     // .then(response => response.json())
     // .then(result => setCountries(result))
-    props.onRequestCountries();
+    onRequestCountries();
+    return;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // moving to actions and reducer
@@ -123,8 +125,6 @@ function App(props) {
             .includes(searchedCountry.toLowerCase());
         })
       : [];
-
-  console.log("countries", countries);
 
   return (
     <div className={"tc"}>

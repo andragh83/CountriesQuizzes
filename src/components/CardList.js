@@ -5,9 +5,8 @@ const CardList = ({ countries }) => {
   return countries.map((country, i) => {
     const languages = [];
     if (country.languages) {
-      for (const [key, value] of Object.entries(country.languages)) {
+      for (const value of Object.values(country.languages)) {
         languages.push(`${value}, `);
-        //   console.log(`${key}: ${value}`);
       }
     }
 
