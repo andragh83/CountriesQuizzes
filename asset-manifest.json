@@ -1,29 +1,29 @@
 {
   "files": {
     "main.css": "/CountriesQuizzes/static/css/main.c4609890.chunk.css",
-    "main.js": "/CountriesQuizzes/static/js/main.8f621e61.chunk.js",
-    "main.js.map": "/CountriesQuizzes/static/js/main.8f621e61.chunk.js.map",
-    "runtime-main.js": "/CountriesQuizzes/static/js/runtime-main.186d9e18.js",
-    "runtime-main.js.map": "/CountriesQuizzes/static/js/runtime-main.186d9e18.js.map",
+    "main.js": "/CountriesQuizzes/static/js/main.86a65466.chunk.js",
+    "main.js.map": "/CountriesQuizzes/static/js/main.86a65466.chunk.js.map",
+    "runtime-main.js": "/CountriesQuizzes/static/js/runtime-main.d3aa110a.js",
+    "runtime-main.js.map": "/CountriesQuizzes/static/js/runtime-main.d3aa110a.js.map",
     "static/css/2.31461e4f.chunk.css": "/CountriesQuizzes/static/css/2.31461e4f.chunk.css",
-    "static/js/2.f13c3325.chunk.js": "/CountriesQuizzes/static/js/2.f13c3325.chunk.js",
-    "static/js/2.f13c3325.chunk.js.map": "/CountriesQuizzes/static/js/2.f13c3325.chunk.js.map",
-    "static/js/3.93b7cd03.chunk.js": "/CountriesQuizzes/static/js/3.93b7cd03.chunk.js",
-    "static/js/3.93b7cd03.chunk.js.map": "/CountriesQuizzes/static/js/3.93b7cd03.chunk.js.map",
+    "static/js/2.50dae61e.chunk.js": "/CountriesQuizzes/static/js/2.50dae61e.chunk.js",
+    "static/js/2.50dae61e.chunk.js.map": "/CountriesQuizzes/static/js/2.50dae61e.chunk.js.map",
+    "static/js/3.f8fcd9c0.chunk.js": "/CountriesQuizzes/static/js/3.f8fcd9c0.chunk.js",
+    "static/js/3.f8fcd9c0.chunk.js.map": "/CountriesQuizzes/static/js/3.f8fcd9c0.chunk.js.map",
     "index.html": "/CountriesQuizzes/index.html",
     "static/css/2.31461e4f.chunk.css.map": "/CountriesQuizzes/static/css/2.31461e4f.chunk.css.map",
     "static/css/main.c4609890.chunk.css.map": "/CountriesQuizzes/static/css/main.c4609890.chunk.css.map",
-    "static/js/2.f13c3325.chunk.js.LICENSE.txt": "/CountriesQuizzes/static/js/2.f13c3325.chunk.js.LICENSE.txt",
+    "static/js/2.50dae61e.chunk.js.LICENSE.txt": "/CountriesQuizzes/static/js/2.50dae61e.chunk.js.LICENSE.txt",
     "static/media/fb.d1e12fbb.png": "/CountriesQuizzes/static/media/fb.d1e12fbb.png",
     "static/media/github.d1bb13ce.svg": "/CountriesQuizzes/static/media/github.d1bb13ce.svg",
     "static/media/insta.9094474d.png": "/CountriesQuizzes/static/media/insta.9094474d.png",
     "static/media/twitter.a429d008.png": "/CountriesQuizzes/static/media/twitter.a429d008.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.186d9e18.js",
+    "static/js/runtime-main.d3aa110a.js",
     "static/css/2.31461e4f.chunk.css",
-    "static/js/2.f13c3325.chunk.js",
+    "static/js/2.50dae61e.chunk.js",
     "static/css/main.c4609890.chunk.css",
-    "static/js/main.8f621e61.chunk.js"
+    "static/js/main.86a65466.chunk.js"
   ]
 }
